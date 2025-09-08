@@ -1,20 +1,18 @@
-# Base image
 FROM node:18-alpine
 
-# Set working directory
 WORKDIR /app
 
-# Copy package.json & package-lock.json dulu (biar caching lebih efisien)
 COPY package*.json ./
-
-# Install dependencies
 RUN npm install --production
 
-# Copy seluruh source code
+# Copy source
 COPY . .
 
-# Expose port (misalnya 3000)
-EXPOSE 3022
+# Build TypeScript ke dist/
+RUN npm run build
 
-# Jalankan aplikasi
-CMD ["node", "index.ts"]
+ENV PORT=3000
+EXPOSE $PORT
+
+# Jalankan hasil build
+CMD ["npm", "start"]
