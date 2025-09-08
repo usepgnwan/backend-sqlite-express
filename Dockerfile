@@ -17,4 +17,4 @@ COPY . .
 EXPOSE 3022
 
 # Jalankan aplikasi
-CMD ["node", "server.js"]
+CMD ["node", "index.ts"]
