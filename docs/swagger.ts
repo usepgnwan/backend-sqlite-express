@@ -10,7 +10,7 @@ const options = {
     },
     servers: [
       {
-        url: 'https://backend-sqlite-express-production.up.railway.app',
+        url: 'http://localhost:3022',
       },
     ],
   },
